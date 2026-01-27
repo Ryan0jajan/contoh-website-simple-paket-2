@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Katalog UMKM – Paket 2</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <meta name="description" content="Contoh Katalog Simple, Clean & Pro - Paket 2.">
+        
+        <!-- Open Graph / Social Media -->
+        <meta property="og:title" content="Contoh Katalog Simple, Clean & Pro - Paket 2" />
+        <meta property="og:description" content="Contoh deskripsi singkat pada halaman katalog dengan Paket 2." />
+        <meta property="og:image" content="https://yourwebsite.com/thumbnail.jpg" />
+        <meta property="og:url" content="https://yourwebsite.com" />
+<meta property="og:type" content="website" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Contoh Katalog Simple, Clean & Pro - Paket 2" />
+  <meta name="twitter:description" content="Contoh deskripsi singkat pada halaman katalog dengan Paket 2." />
+  <meta name="twitter:image" content="https://yourwebsite.com/thumbnail.jpg" />
+  
+        <meta name="theme-color" content="#25d366">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  
+  <style>
+    *{box-sizing:border-box;font-family:Poppins,sans-serif}
+    body{margin:0;background:#f5f6fa}
+
+    header{
+      position:sticky;top:0;z-index:1000;
+      background:#25D366;color:#fff;
+      padding:15px;text-align:center
+    }
+    header h1{margin:0;font-size:20px}
+    header p{margin:4px 0 0;font-size:13px}
+
+    .container{max-width:1100px;margin:auto;padding:15px}
+
+    /* Filter */
+    .filters{
+      display:flex;gap:10px;overflow-x:auto;margin-bottom:15px
+    }
+    .filters button{
+      border:none;padding:8px 14px;
+      border-radius:20px;cursor:pointer;
+      background:#e0e0e0;font-size:13px
+    }
+    .filters button.active{background:#25D366;color:#fff}
+
+    /* Search */
+    .search-box{margin-bottom:15px}
+    .search-box input{
+      width:100%;padding:10px;
+      border-radius:8px;border:1px solid #ccc
+    }
+
+    /* Grid */
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:15px
+    }
+    @media(min-width:700px){
+      .grid{grid-template-columns:repeat(4,1fr)}
+    }
+
+    .card{
+      background:#fff;border-radius:10px;
+      box-shadow:0 2px 8px rgba(0,0,0,.08);
+      overflow:hidden;display:flex;flex-direction:column
+    }
+    .card img{
+      width:100%;height:150px;object-fit:cover
+    }
+    .card-body{padding:10px;flex:1}
+    .badge{
+      display:inline-block;
+      background:#eee;font-size:11px;
+      padding:3px 8px;border-radius:12px;
+      margin-bottom:5px
+    }
+    .card h3{font-size:14px;margin:5px 0}
+    .price{color:#e53935;font-weight:600;font-size:13px}
+
+    .btn{
+      border:none;background:#25D366;color:#fff;
+      padding:10px;font-size:14px;
+      cursor:pointer
+    }
+    .btn:hover{background:#1ebe5d}
+
+    footer{
+      text-align:center;
+      font-size:12px;color:#777;
+      padding:20px
+    }
+
+    /* WA Floating */
+    .wa-float{
+      position:fixed;bottom:20px;right:20px;
+      width:55px;height:55px;
+      background:#25D366;color:#fff;
+      border-radius:50%;
+      display:flex;align-items:center;justify-content:center;
+      font-size:26px;text-decoration:none;
+      box-shadow:0 4px 12px rgba(0,0,0,.3)
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1>Nama Toko UMKM</h1>
+  <p>Buka 08.00 – 21.00 • Area Bekasi</p>
+</header>
+
+<div class="container">
+
+  <!-- Filter -->
+  <div class="filters">
+    <button class="active" onclick="filterProduk('all',this)">Semua</button>
+    <button onclick="filterProduk('frozen',this)">Frozen</button>
+    <button onclick="filterProduk('snack',this)">Snack</button>
+    <button onclick="filterProduk('minuman',this)">Minuman</button>
+  </div>
+
+  <!-- Search -->
+  <div class="search-box">
+    <input type="text" id="search" placeholder="Cari produk..." onkeyup="searchProduk()">
+  </div>
+
+  <!-- Produk -->
+  <div class="grid" id="produkList">
+
+    <!-- 10 Produk -->
+    <div class="card" data-kategori="frozen">
+      <img src="https://placehold.co/300x200?text=Sosis">
+      <div class="card-body">
+        <span class="badge">Frozen</span>
+        <h3>Sosis Bakar Premium</h3>
+        <div class="price">Rp 35.000</div>
+      </div>
+      <button class="btn" onclick="pesanWA('Sosis Bakar Premium',35000)">Pesan</button>
+    </div>
+
+    <div class="card" data-kategori="frozen">
+      <img src="https://placehold.co/300x200?text=Nugget">
+      <div class="card-body">
+        <span class="badge">Frozen</span>
+        <h3>Nugget Ayam Crispy</h3>
+        <div class="price">Rp 28.000</div>
+      </div>
+      <button class="btn" onclick="pesanWA('Nugget Ayam Crispy',28000)">Pesan</button>
+    </div>
+
+    <div class="card" data-kategori="snack">
+      <img src="https://placehold.co/300x200?text=Kerupuk">
+      <div class="card-body">
+        <span class="badge">Snack</span>
+        <h3>Kerupuk Udang</h3>
+        <div class="price">Rp 18.000</div>
+      </div>
+      <button class="btn" onclick="pesanWA('Kerupuk Udang',18000)">Pesan</button>
+    </div>
+
+    <div class="card" data-kategori="snack">
+      <img src="https://placehold.co/300x200?text=Basreng">
+      <div class="card-body">
+        <span class="badge">Snack</span>
+        <h3>Basreng Pedas</h3>
+        <div class="price">Rp 15.000</div>
+      </div>
+      <button class="btn" onclick="pesanWA('Basreng Pedas',15000)">Pesan</button>
+    </div>
+
+    <div class="card" data-kategori="minuman">
+      <img src="https://placehold.co/300x200?text=Yogurt">
+      <div class="card-body">
+        <span class="badge">Minuman</span>
+        <h3>Yogurt Stik</h3>
+        <div class="price">Rp 12.000</div>
+      </div>
+      <button class="btn" onclick="pesanWA('Yogurt Stik',12000)">Pesan</button>
+    </div>
+
+    <div class="card" data-kategori="frozen">
+      <img src="https://placehold.co/300x200?text=Bakso">
+      <div class="card-body">
+        <span class="badge">Frozen</span>
+        <h3>Bakso Homemade</h3>
+        <div class="price">Rp 30.000</div>
+      </div>
+      <button class="btn" onclick="pesanWA('Bakso Homemade',30000)">Pesan</button>
+    </div>
+
+    <div class="card" data-kategori="snack">
+      <img src="https://placehold.co/300x200?text=Roti">
+      <div class="card-body">
+        <span class="badge">Snack</span>
+        <h3>Roti Burger</h3>
+        <div class="price">Rp 32.000</div>
+      </div>
+      <button class="btn" onclick="pesanWA('Roti Burger',32000)">Pesan</button>
+    </div>
+
+    <div class="card" data-kategori="frozen">
+      <img src="https://placehold.co/300x200?text=Karaage">
+      <div class="card-body">
+        <span class="badge">Frozen</span>
+        <h3>Karaage Ayam</h3>
+        <div class="price">Rp 22.000</div>
+      </div>
+      <button class="btn" onclick="pesanWA('Karaage Ayam',22000)">Pesan</button>
+    </div>
+
+    <div class="card" data-kategori="minuman">
+      <img src="https://placehold.co/300x200?text=Es+Teh">
+      <div class="card-body">
+        <span class="badge">Minuman</span>
+        <h3>Es Teh Manis</h3>
+        <div class="price">Rp 5.000</div>
+      </div>
+      <button class="btn" onclick="pesanWA('Es Teh Manis',5000)">Pesan</button>
+    </div>
+
+    <div class="card" data-kategori="snack">
+      <img src="https://placehold.co/300x200?text=Donat">
+      <div class="card-body">
+        <span class="badge">Snack</span>
+        <h3>Donat Mini</h3>
+        <div class="price">Rp 10.000</div>
+      </div>
+      <button class="btn" onclick="pesanWA('Donat Mini',10000)">Pesan</button>
+    </div>
+
+  </div>
+</div>
+
+<footer>
+  © 2026 Nama Toko • Paket 2 – Katalog UMKM
+</footer>
+
+<a href="javascript:void(0)" class="wa-float" onclick="openWA()">💬</a>
+
+<script>
+  const adminWA = "6287785783525";
+
+  function pesanWA(nama,harga){
+    const qty = prompt("Jumlah pesanan?",1);
+    if(!qty) return;
+    const catatan = prompt("Catatan (opsional):","");
+    const text =
+`Halo Admin 👋
+Saya mau pesan:
+
+Produk: ${nama}
+Jumlah: ${qty}
+Harga: Rp ${formatRupiah(harga)}
+
+Catatan:
+${catatan || '-'}
+
+Terima kasih 🙏`;
+    window.open(`https://wa.me/${adminWA}?text=${encodeURIComponent(text)}`,'_blank');
+  }
+
+  function openWA() {
+    const pesan = `Halo Admin 👋
+Saya ingin bertanya seputar produk yang tersedia.
+Terima kasih 🙏`;
+    const url = `https://wa.me/${adminWA}?text=${encodeURIComponent(pesan)}`;
+    window.open(url, "_blank");
+  }
+
+  function filterProduk(kat,el){
+    document.querySelectorAll('.filters button').forEach(b=>b.classList.remove('active'));
+    el.classList.add('active');
+    document.querySelectorAll('.card').forEach(c=>{
+      c.style.display = (kat==='all'||c.dataset.kategori===kat)?'':'none';
+    });
+  }
+
+  function searchProduk(){
+  document.querySelector('.filters button.active')
+    ?.classList.remove('active');
+  document.querySelector('.filters button')
+    .classList.add('active');
+
+  const q = document.getElementById('search').value.toLowerCase();
+  document.querySelectorAll('.card').forEach(c=>{
+    c.style.display = c.innerText.toLowerCase().includes(q)?'':'none';
+  });
+}
+  
+  function formatRupiah(n){
+  return n.toString().replace(/\B(?=(\d{3})+(?!\d))/g,".");
+}
+</script>
+
+</body>
+</html>
